@@ -70,11 +70,11 @@ const dictionary = {
     "Я": "Z",
 }
 
-async function CreateGist () {
+async function translate () {
     let text = editor.document.getText(editor.selection)
     let newText = text.split('').map(el => dictionary[`${el}`] ? dictionary[`${el}`] : el).join('')
  
-    vscode.window.showInformationMessage(`Слово успещно переведено!`);
+    vscode.window.showInformationMessage(`Слово успешно переведено!`);
     editor.edit(editBuilder => {
         editBuilder.replace(editor.selection, newText);
     });
@@ -82,7 +82,7 @@ async function CreateGist () {
 
 function activate(context) {
     let disposable = vscode.commands.registerCommand('extension.translate', function () {
-        CreateGist()
+        translate()
     });
 
     context.subscriptions.push(disposable);
