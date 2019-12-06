@@ -113,7 +113,7 @@ async function setTimer() {
                             :  acc + Number.parseInt(el) * sCoeff
         }, 0)
         console.log('Время:', timeNumber)
-        setTimeout(() => vscode.window.showInformationMessage(`Время вышло! Вы поработали ${input} времени.`), timeNumber)
+        setTimeout(() => vscode.window.showInformationMessage(`Время вышло! Вы поработали ${input}.`), timeNumber)
     })
 }
 
@@ -128,13 +128,13 @@ async function getTotalTime(initialDate) {
     let timeDiff = (currentDate.getTime() - initialDate.getTime()) / 1000
 
     if (timeDiff >= 60) {
-        resultTime = `${timeDiff / 60}m ${timeDiff % 60}s`
+        resultTime = `${Math.round(timeDiff / 60)}m ${Math.round(timeDiff % 60)}s`
     } else {
-        resultTime = `${timeDiff}s`
+        resultTime = `${Math.round(timeDiff)}s`
     }
 
     console.log(timeDiff, timeDiff/1000)
-    vscode.window.showInformationMessage(`Вы проработали уже ${resultTime} времени!`)
+    vscode.window.showInformationMessage(`Вы проработали уже ${resultTime}!`)
 }
 
 /**
