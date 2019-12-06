@@ -1,11 +1,11 @@
 {
     "name": "translate-extension",
     "displayName": "Translate words",
-    "description": "Create Gists of highlighted code",
+    "description": "Translates your code and sets a timer for you",
     "version": "1.0.0",
     "publisher": "Mark Smirnov",
-    "repository": "",
-    "license": "SEE IN LICENSE",
+    "repository": "https://github.com/MarkSmirnov13/VS-Code-Extension",
+    "license": "MIT",
     "engines": {
         "vscode": "^1.20.0"
     },
@@ -13,7 +13,9 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.translate"
+        "onCommand:extension.translate",
+        "onCommand:extension.setTimer",
+        "onCommand:extension.totalTime"
     ],
     "main": "./extension",
     "contributes": {
@@ -21,7 +23,15 @@
             {
                 "command": "extension.translate",
                 "title": "Translate"
-            }
+            },
+            {
+				"command": "extension.setTimer",
+				"title": "Set timer!"
+            },
+            {
+				"command": "extension.totalTime",
+				"title": "Get total time!"
+			}
         ],
         "menus": {
             "editor/context": [
